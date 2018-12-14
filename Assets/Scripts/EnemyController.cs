@@ -7,6 +7,7 @@ public class EnemyController : MonoBehaviour {
 
 	public float movementSpeed = 2f;
 	bool moveLeft;
+	public bool flip = false;
 	private Rigidbody2D rb;
 	public SpriteRenderer sr;
 
@@ -17,7 +18,7 @@ public class EnemyController : MonoBehaviour {
 	public void Turn( bool left )
 	{
 		moveLeft = left;
-		sr.flipX = left;
+		sr.flipX = left ^ flip;
 	}
 
 	public void TouchTopLeft()

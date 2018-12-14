@@ -72,7 +72,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1830319197476402}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.462, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4689380242265594}
@@ -98,7 +98,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1319719407062850}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalPosition: {x: 2.2995195, y: 0.007563591, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4436168654909418}
@@ -280,14 +280,11 @@ MonoBehaviour:
   isGrounded: 1
   waitForFall: 0
   groundedCollider: {fileID: 61835651492767088}
-  playerCamera: {fileID: 0}
+  playerCamera: {fileID: 1830319197476402}
   camReturn: 0.97
   maxLook: 7
   camDefaultPos: {x: 0, y: 0.5, z: 0}
   smoothReturn: 0.95
-  smoothVel: {x: 0, y: 0, z: 0}
-  velAgressiveness: 0.99
-  velocityMultiplier: 0.6
 --- !u!114 &114576417039235652
 MonoBehaviour:
   m_ObjectHideFlags: 1
