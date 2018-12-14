@@ -9,11 +9,13 @@ public class TimerController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		// cashe the GUI
 		GUI = this.GetComponent<TextMeshProUGUI>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		// update the timer
 		GUI.text = Time.time.ToString("F3");
 	}
 }

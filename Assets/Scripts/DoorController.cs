@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DoorController : MonoBehaviour {
 
-
+	// this script is the exact same as the FlagController and as such simply look at that for descriptions
 
 	public Animator anim;
 	public bool doorEnabled = false;

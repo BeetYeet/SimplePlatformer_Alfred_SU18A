@@ -11,12 +11,14 @@ public class ScoreController: MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
+		// cashe the variable
 		GUI = this.GetComponent<TextMeshProUGUI>();
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
+		// update the text
 		GUI.text = GameController.current.playerScore.ToString( "D2" );
 	}
 }
