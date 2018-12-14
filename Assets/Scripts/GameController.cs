@@ -12,13 +12,16 @@ public class GameController : MonoBehaviour {
 	public static GameController current;
 
 	//dynamic
+	public GameObject player;
 	public int playerScore;
 	public List<FlagController> flags;
+	public List<DoorController> doors;
 	public bool flagsEnabled = false;
+	public bool doorsEnabled = false;
 	public SimpleEvent winEvent;
 	public SimpleEvent loseEvent;
-
-	// Use this for initialization
+	public int coinsForCompletion = 5;
+	
 	void Awake () {
 		if ( current != null )
 		{
@@ -26,23 +29,28 @@ public class GameController : MonoBehaviour {
 		}
 		current = this;
 		flags = new List<FlagController>();
+		doors = new List<DoorController>();
+	}
+
+	public void RespawnPlayerAt( Vector2 pos )
+	{
+		player.transform.position = new Vector3( pos.x, pos.y, 0f );
+		player.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 	}
 	
-	
-	// Update is called once per frame
 	void Update () {
-		if ( !flagsEnabled && playerScore >= 5 )
+
+		if ( !flagsEnabled && playerScore >= coinsForCompletion )
 		{
-			EnableWinFlags();
+			flags.ForEach( ( x ) => { x.Enable(); } );
 			flagsEnabled = true;
 		}
+		if ( !doorsEnabled && Time.time >= 10 )
+		{
+			doors.ForEach( ( x ) => { x.Enable(); } );
+			doorsEnabled = true;
+		}
 	}
-
-	public void EnableWinFlags()
-	{
-		flags.ForEach( ( x ) => { x.Enable(); } );
-	}
-
 
 	public void Win()
 	{

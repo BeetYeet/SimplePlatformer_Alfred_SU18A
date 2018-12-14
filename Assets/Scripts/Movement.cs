@@ -31,12 +31,10 @@ public class Movement: MonoBehaviour
 
 	Vector3 smoothPos;
 	public float smoothReturn;
-	public Vector3 smoothVel;
-	public float velAgressiveness;
-	public float velocityMultiplier;
 
 	void Start()
 	{
+		GameController.current.player = gameObject;
 		rb = this.GetComponent<Rigidbody2D>();
 		col = this.GetComponent<BoxCollider2D>();
 	}
@@ -50,15 +48,10 @@ public class Movement: MonoBehaviour
 	private void DoCamera()
 	{
 		smoothPos = Vector3.Lerp( smoothPos, this.transform.position, smoothReturn * Time.deltaTime );
-		smoothVel = Vector3.Lerp( smoothVel, rb.velocity * velocityMultiplier, smoothReturn * Time.deltaTime );
-
-		//Vector3 agressive = new Vector3( smoothVel.x * smoothVel.x, smoothVel.y * smoothVel.y, smoothVel.z * smoothVel.z );
-		//Vector3 velLook = Vector3.Lerp( smoothVel, agressive, velAgressiveness * Time.deltaTime );
-
+		
 
 		camLook *= 1 - ( camReturn * Time.deltaTime );
 		playerCamera.transform.position = 
-			//new Vector3( 0, velLook.y, 0 ) + 
 			smoothPos + 
 			camDefaultPos + 
 			new Vector3( camLook.x, camLook.y, -10f );

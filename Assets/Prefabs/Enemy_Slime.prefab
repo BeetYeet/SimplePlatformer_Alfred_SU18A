@@ -40,8 +40,8 @@ GameObject:
   - component: {fileID: 114100975439376728}
   - component: {fileID: 61390886612171758}
   - component: {fileID: 114882061185545762}
-  - component: {fileID: 114180440702072400}
   - component: {fileID: 50913626488956186}
+  - component: {fileID: 114028703270378144}
   m_Layer: 0
   m_Name: Enemy_Slime
   m_TagString: Enemy
@@ -343,6 +343,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.044057846, y: 0.61245584}
   m_EdgeRadius: 0
+--- !u!114 &114028703270378144
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1479856913141586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4df648bb5f25daa4ba90e4a11ee42f90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnPosition: {fileID: 0}
 --- !u!114 &114100975439376728
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -356,18 +368,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 2
   sr: {fileID: 212041183111899682}
---- !u!114 &114180440702072400
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1479856913141586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa060c24baba4274c85e8a9b883519cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneName: Main
 --- !u!114 &114675573359600292
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -475,8 +475,8 @@ MonoBehaviour:
   OnTriggered:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114180440702072400}
-        m_MethodName: TriggerSimple
+      - m_Target: {fileID: 114028703270378144}
+        m_MethodName: Trigger
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
