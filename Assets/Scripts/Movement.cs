@@ -23,28 +23,28 @@ public class Movement: MonoBehaviour
 	private Rigidbody2D rb;
 	private BoxCollider2D col;
 
-	Vector2 camLook = new Vector2( 0f, 0f );
+	private Vector2 camLook = new Vector2( 0f, 0f );
 	public GameObject playerCamera;
 	public float camReturn;
 	public float maxLook;
 	public Vector3 camDefaultPos;
 
-	Vector3 smoothPos;
+	private Vector3 smoothPos;
 	public float smoothReturn;
 
 	// called at the start of the game
-	void Start()
+	private void Start()
 	{
 		// cashe the player
 		GameController.current.player = gameObject;
 		// cashe the rigidbody
-		rb = this.GetComponent<Rigidbody2D>();
+		rb = GetComponent<Rigidbody2D>();
 		// cashe the collider
-		col = this.GetComponent<BoxCollider2D>();
+		col = GetComponent<BoxCollider2D>();
 	}
 
 	// called once per frame
-	void Update()
+	private void Update()
 	{
 		// movement stuff
 		DoMovement();
@@ -56,7 +56,7 @@ public class Movement: MonoBehaviour
 	private void DoCamera()
 	{
 		// lerp for smoothing between the current pos and the next
-		smoothPos = Vector3.Lerp( smoothPos, this.transform.position, smoothReturn * Time.deltaTime );
+		smoothPos = Vector3.Lerp( smoothPos, transform.position, smoothReturn * Time.deltaTime );
 		
 		// make the difference smaller so that the camera eventually returns
 		camLook *= 1 - ( camReturn * Time.deltaTime );
@@ -68,7 +68,7 @@ public class Movement: MonoBehaviour
 	}
 
 	// movement stuff
-	void DoMovement()
+	private void DoMovement()
 	{
 		// get the input
 		Move( Input.GetAxis( "Horizontal" ) );
@@ -123,7 +123,7 @@ public class Movement: MonoBehaviour
 		}
 	}
 
-	void RecalculateMultiplier()
+	private void RecalculateMultiplier()
 	{
 		// use the animation curve (jumpForceMultiplierDecay) 
 		// and the max jump boost time (jumpForceMultiplierSpan) 
