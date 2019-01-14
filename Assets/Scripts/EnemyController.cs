@@ -6,7 +6,7 @@ public class EnemyController : MonoBehaviour {
 
 
 	public float movementSpeed = 2f;
-	bool moveLeft;
+	private bool moveLeft;
 	public bool flip = false;
 	private Rigidbody2D rb;
 	public SpriteRenderer sr;

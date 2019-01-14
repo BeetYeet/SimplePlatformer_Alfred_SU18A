@@ -7,7 +7,7 @@ public class FlagController: MonoBehaviour
 
 	public Animator anim;
 	public bool flagEnabled = false;
-	public SimpleEvent OnTriggered;
+	public SimpleEvent Triggered;
 	
 	// called at the beginning of the game
 	void Start()
@@ -28,13 +28,13 @@ public class FlagController: MonoBehaviour
 	}
 
 	// to try and load the new level
-	public void Trigger()
+	public void OnTrigger()
 	{
 		// if this flag is enabled
 		if ( flagEnabled )
 		{
 			// call the event
-			OnTriggered.Invoke();
+			Triggered.Invoke();
 		}	
 	}
 }
